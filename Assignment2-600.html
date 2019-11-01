@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Student Record Management</title>
+
+
+  
+  <style>
+    h2 {color:indigo; font-size:24px;}
+
+    body {
+        background-color:orange;
+
+      margin-top: 5%;
+      margin-left: 5%;
+    }
+    button {color:cadetblue
+    }
+    
+    </style>
+  
+ 
+
+ 
+</head>
+
+<body>
+  <h2>Student Record Management</h2>
+  <form id="form">
+    <table>
+      <td>
+        <label>Full Name</label>
+        <br>
+        <input id="fullName" type="text">
+      </td>
+      <td>
+        <label>Major</label>
+        <br>
+        <input id="major" type="text">
+      </td>
+      <td>
+        <label>Start Year</label>
+        <br>
+        <input id="startYear" type="text" >
+      </td>
+      <td>
+        <br>
+        <input id="button" type="submit" value="Add Record">
+      </td>
+    </table>
+  </form>
+
+ 
+  <div id= "div"> <h2>Entered Records:</h2></div>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    $("form").submit(function () {
+      event.preventDefault();
+
+      var date = new Date();
+      var form = $("form");
+
+      var fullName = $('#fullName')[0].value;
+      var major = $('#major')[0].value;
+      var startYear = $('#startYear')[0].value;
+
+      if ((fullName == "") || (major == "") || (startYear == "")) 
+        window.alert('Please ensure the student\'s full name, major and start year values have been entered.');
+      else if (startYear < 2000)
+        window.alert("startYear is less than 2000"); 
+      
+      else
+     
+        $("div").append("<p>" + date.getHours() + ':' + date.getMinutes() + ' - ' + fullName + ', ' + major + ', ' + startYear + "</p>");
+       fullName=$("#fullName").val("");
+        major=$("#major").val("");
+       startYear=$("#startYear").val("");
+       
+        
+       
+         
+      
+
+     
+    }); 
+
+  </script>  
+ 
+
+</body>
+
+</html>
